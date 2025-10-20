@@ -62,6 +62,16 @@ export default function Home() {
     },
   };
 
+  // Helper to transform filenames into display names
+  const toDisplayName = (filename: string) => {
+    const base = filename.replace(/\.[^/.]+$/, "");
+    return base
+      .replace(/_/g, " ")
+      .split(" ")
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(" ");
+  };
+
   const getRolePriority = (role?: string) => {
     if (!role) return 5;
     const normalized = role.toLowerCase();
@@ -143,14 +153,7 @@ export default function Home() {
     syncthesis: "https://x.com/syncthesis_",
   };
 
-  const toDisplayName = (filename: string) => {
-    const base = filename.replace(/\.[^/.]+$/, "");
-    return base
-      .replace(/_/g, " ")
-      .split(" ")
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join(" ");
-  };
+  
 
   useEffect(() => {
     const handleScroll = () => {
