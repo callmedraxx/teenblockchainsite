@@ -62,6 +62,28 @@ export default function Home() {
     },
   };
 
+  const getRolePriority = (role?: string) => {
+    if (!role) return 5;
+    const normalized = role.toLowerCase();
+    if (normalized.includes("founder")) return 0;
+    if (normalized.includes("manager")) return 1;
+    if (normalized.includes("tutor") || normalized.includes("instructor")) return 2;
+    if (normalized.includes("contributor")) return 3;
+    return 4;
+  };
+
+  const sortedTeamFiles = [...teamFiles].sort((a, b) => {
+    const keyA = a.replace(/\.[^/.]+$/, "").toLowerCase();
+    const keyB = b.replace(/\.[^/.]+$/, "").toLowerCase();
+    const roleA = teamMeta[keyA]?.role;
+    const roleB = teamMeta[keyB]?.role;
+    const pA = getRolePriority(roleA);
+    const pB = getRolePriority(roleB);
+    if (pA !== pB) return pA - pB;
+    // Secondary sort by name for stability
+    return toDisplayName(a).localeCompare(toDisplayName(b));
+  });
+
   const eventFiles = [
     "cohort.jpeg",
     "teaching.jpeg",
@@ -258,7 +280,7 @@ export default function Home() {
             {/* Social Buttons */}
             <div className="flex justify-center gap-4 mb-8 flex-wrap">
               <a
-                href="https://x.com/teensinblockchain"
+                href="https://x.com/teensblockchain"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-all hover:scale-110"
@@ -280,7 +302,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="https://instagram.com/teensinblockchain"
+                href="https://instagram.com/teensblockchain"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-all hover:scale-110"
@@ -291,7 +313,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="https://tiktok.com/@teensinblockchain"
+                href="https://tiktok.com/@teensblockchain"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white rounded-full shadow-md hover:shadow-lg transition-all hover:scale-110"
@@ -395,8 +417,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {teamFiles.map((file, index) => {
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {sortedTeamFiles.map((file, index) => {
               const name = toDisplayName(file);
               const key = file.replace(/\.[^/.]+$/, "").toLowerCase();
               const meta = teamMeta[key];
@@ -475,9 +497,9 @@ export default function Home() {
                     <div className="mb-6">
                       <p className="text-sm text-gray-500 mb-1">Instructor</p>
                       <div className="flex items-center gap-2">
-                        <p className="font-semibold text-gray-900">Dr. Ibrahim Musa</p>
+                        <p className="font-semibold text-gray-900">Draxx</p>
                         <a
-                          href="https://x.com/dribrahimmusa"
+                          href="https://x.com/callmedraxxx"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-[#6B21F8] hover:text-[#5B11E8] transition-colors"
@@ -816,7 +838,7 @@ export default function Home() {
               </div>
               <div className="flex gap-4">
                 <a
-                  href="https://x.com/teensinblockchain"
+                  href="https://x.com/teensblockchain"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#6B21F8] transition-colors"
@@ -838,7 +860,7 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://instagram.com/teensinblockchain"
+                  href="https://instagram.com/teensblockchain"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#6B21F8] transition-colors"
@@ -849,7 +871,7 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://tiktok.com/@teensinblockchain"
+                  href="https://tiktok.com/@teensblockchain"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#6B21F8] transition-colors"
@@ -864,7 +886,7 @@ export default function Home() {
           </div>
 
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Teens in Blockchain Africa. All rights reserved.</p>
+            <p>&copy; 2025 Teens in Blockchain Africa. All rights reserved.</p>
           </div>
         </div>
       </footer>
