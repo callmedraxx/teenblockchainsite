@@ -438,8 +438,7 @@ export default function Home() {
                   <div className={`w-40 h-40 mx-auto mb-4 rounded-full bg-gradient-to-br ${gradient} overflow-hidden shadow-lg`}>
                     <img src={`/team/${file}`} alt={name} className="w-full h-full object-cover" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-1">{name}</h3>
-                  <p className="text-gray-600 mb-3">{meta?.role || "Role - TBD"}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{name}</h3>
                   <div className="flex items-center justify-center gap-4">
                     <a
                       href={xLink}
