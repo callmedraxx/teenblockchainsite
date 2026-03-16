@@ -212,7 +212,7 @@ export default function Home() {
               Contact
             </button>
             <Button
-              onClick={() => scrollToSection("join")}
+              onClick={() => window.open("https://wa.me/2347035530867", "_blank")}
               className="bg-[#6B21F8] hover:bg-[#5B11E8] text-white rounded-full px-6"
             >
               Join Us Now
@@ -257,7 +257,7 @@ export default function Home() {
                 Contact
               </button>
               <Button
-                onClick={() => scrollToSection("join")}
+                onClick={() => window.open("https://wa.me/2347035530867", "_blank")}
                 className="bg-[#6B21F8] hover:bg-[#5B11E8] text-white rounded-full"
               >
                 Join Us Now
@@ -330,7 +330,7 @@ export default function Home() {
 
             {/* CTA Button */}
             <Button
-              onClick={() => scrollToSection("join")}
+              onClick={() => window.open("https://wa.me/2347035530867", "_blank")}
               className="bg-[#6B21F8] hover:bg-[#5B11E8] text-white text-lg px-8 py-6 rounded-full shadow-xl hover:shadow-2xl transition-all hover:scale-105 animate-pulse-slow"
             >
               Join Us Now
@@ -773,7 +773,10 @@ export default function Home() {
               Join hundreds of young Africans learning blockchain technology, building innovative projects, and shaping
               the future of Web3 on the continent.
             </p>
-            <Button className="bg-white text-[#6B21F8] hover:bg-purple-50 text-xl px-12 py-8 rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 font-bold">
+            <Button
+              onClick={() => window.open("https://wa.me/2347035530867", "_blank")}
+              className="bg-white text-[#6B21F8] hover:bg-purple-50 text-xl px-12 py-8 rounded-full shadow-2xl hover:shadow-3xl transition-all hover:scale-110 font-bold"
+            >
               Join Us Now
             </Button>
           </div>
